@@ -1,0 +1,9 @@
+def postOrder(root):
+    def postorder(root,arr):
+            if root:
+                postorder(root.left,arr)
+                postorder(root.right,arr)
+                arr.append(root.data)
+    arr=[]                                        #create empty arr to store a nodes' data present in BST
+    postorder(root,arr)
+    return arr
