@@ -1,0 +1,9 @@
+def preorder(root):
+    def preorder(root,arr):
+            if root:
+                arr.append(root.data)
+                preorder(root.left,arr)
+                preorder(root.right,arr)
+    arr=[]                                    #create empty array for storing node's value of arr
+    preorder(root,arr)
+    return arr
