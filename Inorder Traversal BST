@@ -1,0 +1,9 @@
+def InOrder(self,root):
+  def inorder(root,arr):              # function definition passing root with array
+    if root:
+      inorder(root.left,arr)
+      arr.append(root.data)
+      inorder(root.right,arr)
+  arr=[]                             # Create Empty Arr to store the node's data 
+  inorder(root,arr)
+  return arr
