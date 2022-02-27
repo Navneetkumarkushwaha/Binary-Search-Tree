@@ -1,0 +1,47 @@
+# we will use use level order traversal
+# we use temp variable to store index of each level
+# then we will find maximum and minimum index of each level and by substracting maximum and minimum index we will get number of nodes at that perticular level 
+# ans will store maximum of each levels no of nodes.
+
+
+
+
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        
+        ans=0
+        q=[(0,root)]
+        
+        while q:
+            
+            temp=[]
+            
+            for i in range(len(q)):
+                
+                ind,node=q.pop(0)
+                temp.append(ind)
+                
+                if node.left:
+                    q.append((ind*2+1,node.left))
+                if node.right:
+                    q.append((ind*2+2,node.right))
+                    
+            ans=max(ans,max(temp)-min(temp)+1)
+            
+        return ans
+                    
+        
+        
+                
+                
+                
+            
+        
