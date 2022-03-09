@@ -1,0 +1,31 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def bstToGst(self, root: TreeNode) -> TreeNode:
+        self.total=self.findsum(root)
+        self.convert(root)
+        return root
+    
+    def findsum(self,root):
+        if not root:
+            return 0
+        if not root.left and not root.right:
+            return root.val
+        return root.val+self.findsum(root.left)+self.findsum(root.right)
+    
+    def convert(self,root):
+        if not root:
+            return 
+        self.convert(root.left)
+        temp=root.val
+        root.val=self.total
+        self.total-=temp
+        self.convert(root.right)
+        
+            
+            
+        
