@@ -1,0 +1,18 @@
+class Solution:
+    def add(self,root):
+        if not root:
+            return 0
+        return self.add(root.left)+root.data+self.add(root.right)
+    def isSumTree(self,root):
+        if not root:
+            return 1
+        if not root.left and not root.right:
+            return 1
+            
+        leftsum=self.add(root.left)
+        rightsum=self.add(root.right)
+        
+        if root.data==(leftsum+rightsum):
+            if self.isSumTree(root.left) and self.isSumTree(root.right):
+                return 1
+        return 0
