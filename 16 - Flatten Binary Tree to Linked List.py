@@ -23,3 +23,6 @@ class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
         return self.solve1(root)
         
+        
+   Time complexity :- O(n)
+   Space Complexity :- O(n)
